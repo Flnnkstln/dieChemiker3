@@ -1,0 +1,373 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.23.6",
+    "script_metadata_hash": null
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "ddab6677a38889ea7e1fc7e0fca67125",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"exp5-ir-spektroskopie-rotations-schwingungs-banden-von-hcl\">Exp5: IR-Spektroskopie \u2014 Rotations-Schwingungs-Banden von HCl</h1>\n<span class=\"paragraph\">Dieses Notebook f\u00fchrt durch eine halbautomatische Auswertung von HCl-Gasspektren:</span>\n<ol>\n<li>CSV-Dateien hochladen</li>\n<li>Luftspektren vergleichen</li>\n<li>Differenzspektrum <marimo-tex class=\"arithmatex\">||(\\mathrm{HCl+Luft}-\\mathrm{Luft}||)</marimo-tex> bilden</li>\n<li>P- und R-Zweig automatisch erkennen</li>\n<li>Isotopenlinien <marimo-tex class=\"arithmatex\">||(\\mathrm{H}^{35}\\mathrm{Cl}||)</marimo-tex> und <marimo-tex class=\"arithmatex\">||(\\mathrm{H}^{37}\\mathrm{Cl}||)</marimo-tex> zuordnen</li>\n<li>Intensit\u00e4tsverh\u00e4ltnis bestimmen</li>\n<li><marimo-tex class=\"arithmatex\">||(B_0||)</marimo-tex>, <marimo-tex class=\"arithmatex\">||(B_1||)</marimo-tex>, <marimo-tex class=\"arithmatex\">||(\\Theta||)</marimo-tex> und <marimo-tex class=\"arithmatex\">||(R||)</marimo-tex> berechnen</li>\n<li>Tabellen und Abbildungen exportieren</li>\n</ol>\n<span class=\"paragraph\"><strong>Hinweis:</strong> Die automatische Zuordnung ist eine Auswertehilfe. F\u00fcr das Protokoll m\u00fcssen die markierten Peaks und J-Zuordnungen im Plot kontrolliert werden.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "8ae91bb0c830b210bfcc7f5fc3428f8c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "e3b68fceb318e40bdb5050573adb7d4c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"1-csv-dateien-hochladen\">1. CSV-Dateien hochladen</h2>\n<span class=\"paragraph\">Lade mindestens ein Luftspektrum und ein HCl-Spektrum hoch. Erwartetes Format:</span>\n<div class=\"language-text codehilite\"><pre><span></span><code>Wellenzahl_cm-1,Signal\n400.078,0.0174362\n400.257,0.0172583\n</code></pre></div>\n<span class=\"paragraph\">Die Dateinamen d\u00fcrfen beliebig sein. Die Zuordnung erfolgt unten \u00fcber Auswahlfelder.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "df06d1fe73697ae033bd0a19cfea73dc",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='bkHC-0' random-id='04bd7b81-c02c-7c1a-0a50-7c6cb585f9c2'><marimo-file data-initial-value='[]' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;CSV-/TXT-/DAT-Dateien hier ablegen oder ausw\u00e4hlen&lt;/span&gt;&lt;/span&gt;&quot;' data-filetypes='[&quot;.csv&quot;,&quot;.CSV&quot;,&quot;.txt&quot;,&quot;.dat&quot;]' data-multiple='true' data-kind='&quot;area&quot;' data-max_size='50000000'></marimo-file></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "03ecfc07aa2e37873203244120a81601",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "5e61982710d69a40b8f32c87225c2a1e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"importubersicht\">Import\u00fcbersicht</h3>\n<span class=\"paragraph\">Keine Dateien geladen.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "7ec9e9b5ca460e2a577de4cd637750da",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"2-messparameter-und-auswerteoptionen\">2. Messparameter und Auswerteoptionen</h2>\n<ul>\n<li>Die <strong>Aufl\u00f6sung</strong> wird f\u00fcr Fehlerabsch\u00e4tzungen verwendet.</li>\n<li>Das Notebook erkennt automatisch, ob Absorptionsbanden als Maxima oder Minima erscheinen. Das kann unten \u00fcberschrieben werden.</li>\n<li>F\u00fcr die quantitative Auswertung w\u00e4hlst du genau ein Luftspektrum und das dazugeh\u00f6rige HCl-Spektrum aus.</li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "267b93bfb112e967135288576404de9e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><div style='display: flex;flex: 1;flex-direction: row;justify-content: space-between;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='SFPL-0' random-id='d6657f08-5503-7044-4552-fa2831b87ffc'><marimo-dropdown data-initial-value='[]' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Luft-/Referenzspektrum&lt;/span&gt;&lt;/span&gt;&quot;' data-options='[]' data-allow-select-none='true' data-searchable='false' data-full-width='false'></marimo-dropdown></marimo-ui-element><marimo-ui-element object-id='SFPL-1' random-id='a39d6cf2-d9f0-1dc2-588a-a20d39ff1733'><marimo-dropdown data-initial-value='[]' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;HCl-Spektrum&lt;/span&gt;&lt;/span&gt;&quot;' data-options='[]' data-allow-select-none='true' data-searchable='false' data-full-width='false'></marimo-dropdown></marimo-ui-element><marimo-ui-element object-id='SFPL-2' random-id='cf794030-2584-bfcb-3869-f61c799489f5'><marimo-number data-initial-value='1.0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Aufl\u00f6sung der quantitativen Messung / cm\u207b\u00b9&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0.01' data-stop='32.0' data-step='0.01' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element></div><div style='display: flex;flex: 1;flex-direction: row;justify-content: space-between;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='SFPL-3' random-id='d432d71e-8027-b56c-6391-68f83caf894c'><marimo-radio data-initial-value='&quot;automatisch&quot;' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Signalinterpretation&lt;/span&gt;&lt;/span&gt;&quot;' data-options='[&quot;automatisch&quot;,&quot;Absorbanz: Peaks nach oben&quot;,&quot;Transmission: Absorption nach unten&quot;]' data-inline='false' data-disabled='false'></marimo-radio></marimo-ui-element><marimo-ui-element object-id='SFPL-4' random-id='763c8e94-07cc-1555-d964-1c085814663e'><marimo-number data-initial-value='2600.0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;HCl-Bereich min / cm\u207b\u00b9&lt;/span&gt;&lt;/span&gt;&quot;' data-start='1000.0' data-stop='4000.0' data-step='1.0' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element><marimo-ui-element object-id='SFPL-5' random-id='f4f02618-5c74-4aff-2b2c-7d42132fbeb4'><marimo-number data-initial-value='3100.0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;HCl-Bereich max / cm\u207b\u00b9&lt;/span&gt;&lt;/span&gt;&quot;' data-start='1000.0' data-stop='4500.0' data-step='1.0' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element></div><div style='display: flex;flex: 1;flex-direction: row;justify-content: space-between;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='SFPL-6' random-id='d1d68061-97d0-b19e-f9ac-23a0d637d606'><marimo-slider data-initial-value='1.5' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Peak-Empfindlichkeit: Prominence-Faktor&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0.2' data-stop='8.0' data-step='0.1' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element><marimo-ui-element object-id='SFPL-7' random-id='4d2ddd07-b5fd-06ae-ee6a-d767e3b805fd'><marimo-number data-initial-value='1.0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Mindestabstand zwischen Peaks / cm\u207b\u00b9&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0.2' data-stop='10.0' data-step='0.1' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element><marimo-ui-element object-id='SFPL-8' random-id='4d8e6e22-cec6-7400-318f-174fa8e65d21'><marimo-number data-initial-value='12.0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Max. Abstand eines Isotopen-Dubletts / cm\u207b\u00b9&lt;/span&gt;&lt;/span&gt;&quot;' data-start='1.0' data-stop='50.0' data-step='0.5' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element><marimo-ui-element object-id='SFPL-9' random-id='9ae1b856-10d8-1aca-f093-4e4355c8eb59'><marimo-number data-initial-value='10' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;maximal verwendete J-Zahl&lt;/span&gt;&lt;/span&gt;&quot;' data-start='4' data-stop='25' data-step='1' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element></div></div>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "ee4fa38b81cd623410b9b6a381ef2c83",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Keine eindeutigen Luftspektren im Dateinamen erkannt. Die quantitative Auswertung funktioniert trotzdem \u00fcber die Auswahlfelder.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "d7f969abdb4d36aa4cc122c7320662a5",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Kclp",
+      "code_hash": "5702a6e63a40474033b3aaf26ae050e6",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "emfo",
+      "code_hash": "755357413b5d9f5374f0def274982bb4",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Bitte Dateien hochladen und Luft/HCl-Spektrum ausw\u00e4hlen.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hstk",
+      "code_hash": "96ded28caac78a9f932e5a7747996a21",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "nWHF",
+      "code_hash": "94521efdea01cbffaf88beb5bde535ba",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"3-automatische-peakliste-und-manuelle-korrektur\">3. Automatische Peakliste und manuelle Korrektur</h2>\n<span class=\"paragraph\">Kontrolliere die Zuordnung im Plot. Falls die automatische Peak-/J-Zuordnung nicht stimmt, kannst du unten eine eigene Tabelle einf\u00fcgen.</span>\n<span class=\"paragraph\">Erwartete Spalten f\u00fcr manuelle Korrektur:</span>\n<div class=\"language-gdscript codehilite\"><pre><span></span><code><span class=\"n\">branch</span><span class=\"p\">,</span><span class=\"n\">J</span><span class=\"p\">,</span><span class=\"n\">isotope</span><span class=\"p\">,</span><span class=\"n\">wavenumber_cm</span><span class=\"o\">-</span><span class=\"mi\">1</span><span class=\"p\">,</span><span class=\"n\">sigma_cm</span><span class=\"o\">-</span><span class=\"mi\">1</span><span class=\"p\">,</span><span class=\"n\">height</span><span class=\"p\">,</span><span class=\"n\">area</span>\n<span class=\"n\">P</span><span class=\"p\">,</span><span class=\"mi\">1</span><span class=\"p\">,</span><span class=\"n\">H35Cl</span><span class=\"p\">,</span><span class=\"mf\">2860.12</span><span class=\"p\">,</span><span class=\"mf\">0.29</span><span class=\"p\">,</span><span class=\"mf\">0.123</span><span class=\"p\">,</span><span class=\"mf\">0.456</span>\n<span class=\"n\">P</span><span class=\"p\">,</span><span class=\"mi\">1</span><span class=\"p\">,</span><span class=\"n\">H37Cl</span><span class=\"p\">,</span><span class=\"mf\">2858.03</span><span class=\"p\">,</span><span class=\"mf\">0.29</span><span class=\"p\">,</span><span class=\"mf\">0.041</span><span class=\"p\">,</span><span class=\"mf\">0.153</span>\n<span class=\"n\">R</span><span class=\"p\">,</span><span class=\"mi\">0</span><span class=\"p\">,</span><span class=\"n\">H35Cl</span><span class=\"p\">,</span><span class=\"mf\">2904.50</span><span class=\"p\">,</span><span class=\"mf\">0.29</span><span class=\"p\">,</span><span class=\"mf\">0.120</span><span class=\"p\">,</span><span class=\"mf\">0.450</span>\n<span class=\"n\">R</span><span class=\"p\">,</span><span class=\"mi\">0</span><span class=\"p\">,</span><span class=\"n\">H37Cl</span><span class=\"p\">,</span><span class=\"mf\">2902.40</span><span class=\"p\">,</span><span class=\"mf\">0.29</span><span class=\"p\">,</span><span class=\"mf\">0.040</span><span class=\"p\">,</span><span class=\"mf\">0.150</span>\n</code></pre></div>\n<span class=\"paragraph\">Wenn das Feld leer bleibt, wird die automatische Tabelle verwendet.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "iLit",
+      "code_hash": "53785dc1167bcd6ed315a7e131bd9a6d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='iLit-0' random-id='318e7407-942e-4bae-24bc-f5055a143459'><marimo-text-area data-initial-value='&quot;&quot;' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Optionale manuelle Peak-/J-Tabelle als CSV&lt;/span&gt;&lt;/span&gt;&quot;' data-placeholder='&quot;&quot;' data-disabled='false' data-debounce='true' data-full-width='true' data-rows='8'></marimo-text-area></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ZHCJ",
+      "code_hash": "85820478321521c784d728bdc2b28c31",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ROlb",
+      "code_hash": "a4b4d7d90c1c0f0b0bc551cc39014144",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Noch kein Differenzspektrum verf\u00fcgbar.</span></span><span class=\"markdown prose dark:prose-invert contents\"></span><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"aktive-peak-j-tabelle\">Aktive Peak-/J-Tabelle</h3>\n<span class=\"paragraph\">Keine Peaks zugeordnet.</span></span></div><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><div style='display: flex;flex: 1;flex-direction: row;justify-content: space-between;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='SFPL-0' random-id='d6657f08-5503-7044-4552-fa2831b87ffc'><marimo-dropdown data-initial-value='[]' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Luft-/Referenzspektrum&lt;/span&gt;&lt;/span&gt;&quot;' data-options='[]' data-allow-select-none='true' data-searchable='false' data-full-width='false'></marimo-dropdown></marimo-ui-element><marimo-ui-element object-id='SFPL-1' random-id='a39d6cf2-d9f0-1dc2-588a-a20d39ff1733'><marimo-dropdown data-initial-value='[]' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;HCl-Spektrum&lt;/span&gt;&lt;/span&gt;&quot;' data-options='[]' data-allow-select-none='true' data-searchable='false' data-full-width='false'></marimo-dropdown></marimo-ui-element><marimo-ui-element object-id='SFPL-2' random-id='cf794030-2584-bfcb-3869-f61c799489f5'><marimo-number data-initial-value='1.0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Aufl\u00f6sung der quantitativen Messung / cm\u207b\u00b9&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0.01' data-stop='32.0' data-step='0.01' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element></div><div style='display: flex;flex: 1;flex-direction: row;justify-content: space-between;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='SFPL-3' random-id='d432d71e-8027-b56c-6391-68f83caf894c'><marimo-radio data-initial-value='&quot;automatisch&quot;' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Signalinterpretation&lt;/span&gt;&lt;/span&gt;&quot;' data-options='[&quot;automatisch&quot;,&quot;Absorbanz: Peaks nach oben&quot;,&quot;Transmission: Absorption nach unten&quot;]' data-inline='false' data-disabled='false'></marimo-radio></marimo-ui-element><marimo-ui-element object-id='SFPL-4' random-id='763c8e94-07cc-1555-d964-1c085814663e'><marimo-number data-initial-value='2600.0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;HCl-Bereich min / cm\u207b\u00b9&lt;/span&gt;&lt;/span&gt;&quot;' data-start='1000.0' data-stop='4000.0' data-step='1.0' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element><marimo-ui-element object-id='SFPL-5' random-id='f4f02618-5c74-4aff-2b2c-7d42132fbeb4'><marimo-number data-initial-value='3100.0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;HCl-Bereich max / cm\u207b\u00b9&lt;/span&gt;&lt;/span&gt;&quot;' data-start='1000.0' data-stop='4500.0' data-step='1.0' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element></div><div style='display: flex;flex: 1;flex-direction: row;justify-content: space-between;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='SFPL-6' random-id='d1d68061-97d0-b19e-f9ac-23a0d637d606'><marimo-slider data-initial-value='1.5' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Peak-Empfindlichkeit: Prominence-Faktor&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0.2' data-stop='8.0' data-step='0.1' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element><marimo-ui-element object-id='SFPL-7' random-id='4d2ddd07-b5fd-06ae-ee6a-d767e3b805fd'><marimo-number data-initial-value='1.0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Mindestabstand zwischen Peaks / cm\u207b\u00b9&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0.2' data-stop='10.0' data-step='0.1' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element><marimo-ui-element object-id='SFPL-8' random-id='4d8e6e22-cec6-7400-318f-174fa8e65d21'><marimo-number data-initial-value='12.0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Max. Abstand eines Isotopen-Dubletts / cm\u207b\u00b9&lt;/span&gt;&lt;/span&gt;&quot;' data-start='1.0' data-stop='50.0' data-step='0.5' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element><marimo-ui-element object-id='SFPL-9' random-id='9ae1b856-10d8-1aca-f093-4e4355c8eb59'><marimo-number data-initial-value='10' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;maximal verwendete J-Zahl&lt;/span&gt;&lt;/span&gt;&quot;' data-start='4' data-stop='25' data-step='1' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element></div></div></div>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "qnkX",
+      "code_hash": "9aa4dfd1d279f6281bfa6df0473db396",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "TqIu",
+      "code_hash": "990cec3dcb94b873da492f8b0ee9268b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Vxnm",
+      "code_hash": "a44120299ffe561f4c8bfc23879cde64",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"4-fit-tabellen\">4. Fit-Tabellen</h2>\n<h3 id=\"tabelle-fur-b1\">Tabelle f\u00fcr B\u2081</h3>\n<span class=\"paragraph\">Keine B\u2081-Tabelle m\u00f6glich.</span>\n<h3 id=\"tabelle-fur-b0\">Tabelle f\u00fcr B\u2080</h3>\n<span class=\"paragraph\">Keine B\u2080-Tabelle m\u00f6glich.</span>\n<h3 id=\"fit-ergebnisse\">Fit-Ergebnisse</h3>\n<span class=\"paragraph\">Noch keine linearen Fits m\u00f6glich. Pr\u00fcfe Peak-/J-Zuordnung.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "DnEU",
+      "code_hash": "b341b21d7ecf3127b09716f65ed1a820",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Keine Fitplots verf\u00fcgbar.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ulZA",
+      "code_hash": "d3a89e9f7724560b2b5748dba005e66a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ecfG",
+      "code_hash": "3d6e653b3ab43f8bf0d69733662d6d05",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"5-molekulare-ergebnisse-b-und-r\">5. Molekulare Ergebnisse: B, \u0398 und R</h2>\n<span class=\"paragraph\">Noch keine molekularen Ergebnisse verf\u00fcgbar.</span>\n<span class=\"paragraph\"><strong>Standardform:</strong> Gib im Protokoll z. B. <code>B = (10.59 \u00b1 0.03) cm\u207b\u00b9</code> an. F\u00fcr sehr kleine \u0398-Werte wissenschaftliche Schreibweise verwenden.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Pvdt",
+      "code_hash": "98ad6eeb5d30f1f43d4f5081d2dac2d0",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"6-isotopen-intensitatsverhaltnis\">6. Isotopen-Intensit\u00e4tsverh\u00e4ltnis</h2>\n<span class=\"paragraph\">Keine vollst\u00e4ndigen Isotopenpaare gefunden.</span>\n<span class=\"paragraph\">Zum Vergleich: nat\u00fcrliche Chlorh\u00e4ufigkeit ungef\u00e4hr 75.8 % \u00b3\u2075Cl und 24.2 % \u00b3\u2077Cl, also etwa 3:1.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ZBYS",
+      "code_hash": "1eabb51906129ca9ae968aa941a46a6a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-callout-output data-html='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;h2 id=&#92;&quot;7-plausibilitatschecks&#92;&quot;&gt;7. Plausibilit\u00e4tschecks&lt;/h2&gt;&#92;n&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Keine Warnungen.&lt;/span&gt;&lt;/span&gt;&quot;' data-kind='&quot;success&quot;'></marimo-callout-output>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "aLJB",
+      "code_hash": "fbadfa9f8623d2878a050274c3872866",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "nHfw",
+      "code_hash": "37fa9a3b4d29eaee55548f68babccaa8",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='nHfw-0' random-id='165dd1a0-5a62-a661-771a-664e94d6f2aa'><marimo-download data-initial-value='null' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Ergebnistabellen als ZIP herunterladen&lt;/span&gt;&lt;/span&gt;&quot;' data-data='&quot;data:application/zip;base64,UEsDBBQAAAAIAIiDsFyTBtcyAwAAAAEAAAAWAAAAMDFfZ2VmdW5kZW5lX3BlYWtzLmNzduMCAFBLAwQUAAAACACIg7BckwbXMgMAAAABAAAAFQAAADAyX2ZpdF90YWJlbGxlX0IxLmNzduMCAFBLAwQUAAAACACIg7BckwbXMgMAAAABAAAAFQAAADAzX2ZpdF90YWJlbGxlX0IwLmNzduMCAFBLAwQUAAAACACIg7BckwbXMgMAAAABAAAAFQAAADA0X2ZpdF9lcmdlYm5pc3NlLmNzduMCAFBLAwQUAAAACACIg7BcD7m1LnIAAACcAAAAHAAAADA1X21vbGVrdWxhcmVfZXJnZWJuaXNzZS5jc3bLLM4vyS9I1fHOzysuScwrSdVxUtBXSM591Lj70E6d880aTppI/JCM1JJEID87XSH30CaQNFhEEyEUBGQebgXJBGlCmE7xOZkl8cm5uoY6QWCmo45HYmppWmZ6diqQ55wTr6rjmFSupwCyGMoEmaLKBQBQSwMEFAAAAAgAiIOwXJMG1zIDAAAAAQAAABoAAAAwNl9pc290b3BlbnZlcmhhZWx0bmlzLmNzduMCAFBLAwQUAAAACACIg7BcTGV4XcUAAAACAQAACgAAAFJFQURNRS50eHRFjzFOxDAQRfuc4l8g29HQwS4SKxAKaCUkOod8sqPYnpUzVhbOwxmo6HIxbApoR/+//+bmfLrA/qm9yvPCZDmOuN36ptkJZ+Jl37U7ZxQw2nH99IZBCJdnDAwILknQ9kGNveoEnk+aTAqHEQfX03vGTdN5tRnT+hVjuUvAX2H97pl+kTXj39s7F5gc+o9lg+uky8z0luNkorX6z0eRHSq7eZbXo8l4iXuxUrWc6h+sM11S00m9RxADZWQsa4+5aqHIcayEH1BLAQIUAxQAAAAIAIiDsFyTBtcyAwAAAAEAAAAWAAAAAAAAAAAAAACAAQAAAAAwMV9nZWZ1bmRlbmVfcGVha3MuY3N2UEsBAhQDFAAAAAgAiIOwXJMG1zIDAAAAAQAAABUAAAAAAAAAAAAAAIABNwAAADAyX2ZpdF90YWJlbGxlX0IxLmNzdlBLAQIUAxQAAAAIAIiDsFyTBtcyAwAAAAEAAAAVAAAAAAAAAAAAAACAAW0AAAAwM19maXRfdGFiZWxsZV9CMC5jc3ZQSwECFAMUAAAACACIg7BckwbXMgMAAAABAAAAFQAAAAAAAAAAAAAAgAGjAAAAMDRfZml0X2VyZ2Vibmlzc2UuY3N2UEsBAhQDFAAAAAgAiIOwXA+5tS5yAAAAnAAAABwAAAAAAAAAAAAAAIAB2QAAADA1X21vbGVrdWxhcmVfZXJnZWJuaXNzZS5jc3ZQSwECFAMUAAAACACIg7BckwbXMgMAAAABAAAAGgAAAAAAAAAAAAAAgAGFAQAAMDZfaXNvdG9wZW52ZXJoYWVsdG5pcy5jc3ZQSwECFAMUAAAACACIg7BcTGV4XcUAAAACAQAACgAAAAAAAAAAAAAAgAHAAQAAUkVBRE1FLnR4dFBLBQYAAAAABwAHANcBAACtAgAAAAA=&quot;' data-filename='&quot;exp5_ir_hcl_ergebnisse.zip&quot;' data-disabled='false' data-lazy='false'></marimo-download></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "xXTn",
+      "code_hash": "88b3fbf305c3597fdf562b43351e010b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"8-was-im-protokoll-diskutiert-werden-sollte\">8. Was im Protokoll diskutiert werden sollte</h2>\n<ul>\n<li><strong>Messparameter:</strong> Mehr Scans verbessern normalerweise das Signal-Rausch-Verh\u00e4ltnis; h\u00f6here spektrale Aufl\u00f6sung trennt nahe Linien besser, kostet aber Messzeit und Signalqualit\u00e4t.</li>\n<li><strong>P-/R-Zweig:</strong> P-Zweig liegt bei kleineren Wellenzahlen, R-Zweig bei gr\u00f6\u00dferen Wellenzahlen. Ein Q-Zweig fehlt f\u00fcr den hier betrachteten \u00dcbergang.</li>\n<li><strong>Achsenabschnitt d:</strong> Bei korrekter Zuordnung sollte d innerhalb der Unsicherheit mit 0 vereinbar sein. Ein signifikanter d-Wert spricht f\u00fcr systematische Fehler.</li>\n<li><strong>B\u2080 vs. B\u2081:</strong> Meist gilt <marimo-tex class=\"arithmatex\">||(B_1 &lt; B_0||)</marimo-tex>, weil der mittlere Bindungsabstand im angeregten Schwingungszustand gr\u00f6\u00dfer ist; dadurch steigt das Tr\u00e4gheitsmoment und B sinkt.</li>\n<li><strong>Isotopeneffekt:</strong> Die Isotopenmasse beeinflusst stark <marimo-tex class=\"arithmatex\">||(B||)</marimo-tex> und <marimo-tex class=\"arithmatex\">||(\\Theta||)</marimo-tex>, aber der berechnete Bindungsabstand sollte f\u00fcr H\u00b3\u2075Cl und H\u00b3\u2077Cl sehr \u00e4hnlich sein.</li>\n<li><strong>Intensit\u00e4tsverh\u00e4ltnis:</strong> Die nat\u00fcrliche H\u00e4ufigkeit von Chlorisotopen legt grob ein Verh\u00e4ltnis H\u00b3\u2075Cl:H\u00b3\u2077Cl von ca. 3:1 nahe; Abweichungen k\u00f6nnen durch \u00dcberlagerung, Rauschen, Linienform und Peak-Auswahl entstehen.</li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}

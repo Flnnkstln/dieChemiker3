@@ -7,13 +7,312 @@
   "cells": [
     {
       "id": "Hbol",
-      "code_hash": "e5e066080f6a15822a8b48d943138da2",
+      "code_hash": "9172821afbba28e3c79749e8cbbc950a",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"kleines-chemie-dashboard\">Kleines Chemie-Dashboard</h1>\n<span class=\"paragraph\">Das ist ein sehr einfaches marimo-Notebook als App.</span>\n<h2 id=\"beispiel-ideale-gasgleichung\">Beispiel: ideale Gasgleichung</h2>\n<marimo-tex class=\"arithmatex\">||[\npV = nRT\n||]</marimo-tex><span class=\"paragraph\">F\u00fcr ein ideales Gas gilt:</span>\n<ul>\n<li><marimo-tex class=\"arithmatex\">||(p||)</marimo-tex>: Druck</li>\n<li><marimo-tex class=\"arithmatex\">||(V||)</marimo-tex>: Volumen</li>\n<li><marimo-tex class=\"arithmatex\">||(n||)</marimo-tex>: Stoffmenge</li>\n<li><marimo-tex class=\"arithmatex\">||(R||)</marimo-tex>: Gaskonstante</li>\n<li><marimo-tex class=\"arithmatex\">||(T||)</marimo-tex>: Temperatur</li>\n</ul>\n<span class=\"paragraph\"><strong>Ziel dieses Notebooks:</strong><br />\nPr\u00fcfen, ob Markdown, LaTeX und einfache Darstellung beim Export funktionieren.</span></span>"
+            "text/plain": ""
           }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "7a884661ab3d2d0caf87a058414cfe30",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"interaktive-auswertung-physisorption-porenstruktur-tpr-und-h2-chemisorption\">Interaktive Auswertung: Physisorption, Porenstruktur, TPR und H\u2082-Chemisorption</h1>\n<span class=\"paragraph\">Upload der Messdateien, Auswahl von Parametern und automatische Berechnung von Plots und Kennzahlen.\nDas Notebook ist upload-basiert aufgebaut und kommt ohne lokale, absolute Dateipfade aus.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "3d764dc04eaf117c3eb6169a985231d9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"1-daten-hochladen\">1. Daten hochladen</h2>\n<span class=\"paragraph\">Erwartete Dateitypen:</span>\n<ul>\n<li>N\u2082-Isotherme: Dateiname enth\u00e4lt <code>powder_isotherm</code></li>\n<li>BET-Linearisierung: Dateiname enth\u00e4lt <code>MP_BET</code></li>\n<li>DFT/NLDFT-Porenstruktur: Dateiname enth\u00e4lt <code>DFT_pore_size</code></li>\n<li>H\u2082-Chemisorption: Dateiname enth\u00e4lt <code>sorption_60deg</code> oder <code>ChemIso</code></li>\n<li>H\u2082-TPR: Dateiname enth\u00e4lt <code>TPR</code></li>\n</ul></span><marimo-ui-element object-id='vblA-0' random-id='15575efc-efcf-dc6b-6655-1b9c135f89e4'><marimo-file data-initial-value='[]' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Messdateien hochladen&lt;/span&gt;&lt;/span&gt;&quot;' data-filetypes='[&quot;.txt&quot;]' data-multiple='true' data-kind='&quot;area&quot;' data-max_size='100000000'></marimo-file></marimo-ui-element><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Prim\u00e4rer Workflow: Dateien hier hochladen. Nicht hochgeladene Datens\u00e4tze werden sp\u00e4ter als\n<code>nicht verf\u00fcgbar</code> markiert; nur die davon abh\u00e4ngigen Abschnitte werden \u00fcbersprungen.</span></span></div>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "49286965266005a2a07bf54e176ff806",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "55cd0cefca1661cd3570bbad7b9f7c07",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"2-dateierkennung\">2. Dateierkennung</h2>\n<span class=\"paragraph\">Bitte lade mindestens eine <code>.txt</code>-Messdatei hoch, damit die Auswertung startet.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "63655bf6e92f205ea175e57a6cf7e99e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"3-analyseparameter\">3. Analyseparameter</h2></span><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"proben-und-metallparameter\">Proben- und Metallparameter</h3></span><div style='display: flex;flex: 1;flex-direction: row;justify-content: space-between;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='PKri-0' random-id='c3d7e606-c9d4-f467-d564-be2390de4269'><marimo-number data-initial-value='0.625' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Probenmasse Physisorption / g&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-step='0.001' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element><marimo-ui-element object-id='PKri-1' random-id='d5a43524-6d90-bdcd-d35c-116ef39cebd4'><marimo-number data-initial-value='0.317' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Probenmasse H\u2082-Chemisorption / g&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-step='0.001' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element><marimo-ui-element object-id='PKri-2' random-id='4624a181-7c1e-bd29-8e80-d8f53da86d44'><marimo-number data-initial-value='0.623' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Probenmasse TPR / g&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-step='0.001' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element></div><div style='display: flex;flex: 1;flex-direction: row;justify-content: space-between;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='PKri-3' random-id='2fa7f939-adec-8a0a-465c-4dd3649b8ccf'><marimo-number data-initial-value='1.12' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Gesamtmetallbeladung / Gew.-%&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-step='0.01' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element><marimo-ui-element object-id='PKri-4' random-id='325f7be6-0487-918a-81f8-06ec0a5da910'><marimo-slider data-initial-value='0.5' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Pd-Anteil am Gesamtmetall&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0.0' data-stop='1.0' data-step='0.01' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element></div><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"tpr-parameter\">TPR-Parameter</h3></span><div style='display: flex;flex: 1;flex-direction: row;justify-content: space-between;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='PKri-5' random-id='94f050e3-a823-5032-8b97-3afdc986de23'><marimo-slider data-initial-value='21' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;TPR-Gl\u00e4ttungsfenster&lt;/span&gt;&lt;/span&gt;&quot;' data-start='5' data-stop='101' data-step='2' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element><marimo-ui-element object-id='PKri-6' random-id='f6f835ae-d2f4-2a2e-1be0-4f8a71058b6e'><marimo-slider data-initial-value='0.35' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;TPR-Peak-Prominenzfaktor&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0.1' data-stop='5.0' data-step='0.1' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element></div><marimo-ui-element object-id='PKri-7' random-id='4e37f2f0-6dce-cf95-81ce-96f0ab474844'><marimo-radio data-initial-value='&quot;robust polynomial&quot;' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;TPR-Baseline-Methode&lt;/span&gt;&lt;/span&gt;&quot;' data-options='[&quot;none&quot;,&quot;polynomial&quot;,&quot;robust polynomial&quot;]' data-inline='false' data-disabled='false'></marimo-radio></marimo-ui-element><div style='display: flex;flex: 1;flex-direction: row;justify-content: space-between;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='PKri-8' random-id='f6965ad2-ccce-bb16-3b53-810c18f9d169'><marimo-number data-initial-value='45' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Baselinebereich 1 bis / \u00b0C&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-step='5' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element><marimo-ui-element object-id='PKri-9' random-id='ac132998-3fdf-ca4e-9e11-916b7b580d5d'><marimo-number data-initial-value='135' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Baselinebereich 2 von / \u00b0C&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-step='5' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element><marimo-ui-element object-id='PKri-10' random-id='d47dab4e-13f7-d76a-d1e1-29b8b7565843'><marimo-number data-initial-value='250' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Baselinebereich 2 bis / \u00b0C&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-step='5' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element><marimo-ui-element object-id='PKri-11' random-id='4ee76b23-9e79-4325-f6e3-0c5faaadaa0a'><marimo-number data-initial-value='330' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Baselinebereich 3 ab / \u00b0C&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-step='5' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element></div><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"h2-chemisorption\">H\u2082-Chemisorption</h3></span><div style='display: flex;flex: 1;flex-direction: row;justify-content: space-between;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='PKri-12' random-id='de47500a-8d4c-3b92-8216-9972db94dcd4'><marimo-checkbox data-initial-value='false' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Druckachse logarithmisch&lt;/span&gt;&lt;/span&gt;&quot;' data-disabled='false'></marimo-checkbox></marimo-ui-element><marimo-ui-element object-id='PKri-14' random-id='ef9cdd86-2443-b8cb-7222-8837309647e6'><marimo-number data-initial-value='2.0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Metallpl\u00e4tze pro H\u2082&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0.1' data-step='0.1' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element></div><marimo-ui-element object-id='PKri-13' random-id='7108b41e-79d4-900f-550b-2943f5113a63'><marimo-radio data-initial-value='&quot;strong&quot;' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Uptake-Basis f\u00fcr Dispersionsabsch\u00e4tzung&lt;/span&gt;&lt;/span&gt;&quot;' data-options='[&quot;strong&quot;,&quot;combined&quot;,&quot;combined - weak&quot;]' data-inline='false' data-disabled='false'></marimo-radio></marimo-ui-element><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"sichtbare-analyseabschnitte\">Sichtbare Analyseabschnitte</h3></span><div style='display: flex;flex: 1;flex-direction: row;justify-content: space-between;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='PKri-15' random-id='bd046714-0687-4c6a-21f4-7abfd671110d'><marimo-checkbox data-initial-value='true' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;N\u2082-Isotherme&lt;/span&gt;&lt;/span&gt;&quot;' data-disabled='false'></marimo-checkbox></marimo-ui-element><marimo-ui-element object-id='PKri-16' random-id='40298272-e298-af36-2e28-d94b67802a58'><marimo-checkbox data-initial-value='true' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;BET&lt;/span&gt;&lt;/span&gt;&quot;' data-disabled='false'></marimo-checkbox></marimo-ui-element><marimo-ui-element object-id='PKri-17' random-id='581d87e8-a532-557f-2d6a-a73d60b9014d'><marimo-checkbox data-initial-value='true' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;DFT/NLDFT&lt;/span&gt;&lt;/span&gt;&quot;' data-disabled='false'></marimo-checkbox></marimo-ui-element><marimo-ui-element object-id='PKri-18' random-id='d2c53363-5e02-f84c-1565-d492d49ddfa7'><marimo-checkbox data-initial-value='true' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Kelvin/BJH&lt;/span&gt;&lt;/span&gt;&quot;' data-disabled='false'></marimo-checkbox></marimo-ui-element><marimo-ui-element object-id='PKri-19' random-id='9d0b9792-c6a3-a0d5-b431-dd00b7076dd2'><marimo-checkbox data-initial-value='true' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;TPR&lt;/span&gt;&lt;/span&gt;&quot;' data-disabled='false'></marimo-checkbox></marimo-ui-element><marimo-ui-element object-id='PKri-20' random-id='3c04393d-a50c-aae4-de76-004bc915eb6b'><marimo-checkbox data-initial-value='true' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;H\u2082-Chemisorption&lt;/span&gt;&lt;/span&gt;&quot;' data-disabled='false'></marimo-checkbox></marimo-ui-element></div></div>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "1d0f848cb0cc190b4305d96dff67fd88",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"4-aktive-parameter\">4. Aktive Parameter</h2></span><marimo-ui-element object-id='Xref-0' random-id='d138b99c-b97f-c8d9-f24f-d228b0a489fd'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;_marimo_row_id&#92;&quot;:0,&#92;&quot;Parameter&#92;&quot;:&#92;&quot;Probenmasse Physisorption / g&#92;&quot;,&#92;&quot;Wert&#92;&quot;:&#92;&quot;0.625&#92;&quot;},{&#92;&quot;_marimo_row_id&#92;&quot;:1,&#92;&quot;Parameter&#92;&quot;:&#92;&quot;Probenmasse H&#92;&#92;u2082-Chemisorption / g&#92;&quot;,&#92;&quot;Wert&#92;&quot;:&#92;&quot;0.317&#92;&quot;},{&#92;&quot;_marimo_row_id&#92;&quot;:2,&#92;&quot;Parameter&#92;&quot;:&#92;&quot;Probenmasse TPR / g&#92;&quot;,&#92;&quot;Wert&#92;&quot;:&#92;&quot;0.623&#92;&quot;},{&#92;&quot;_marimo_row_id&#92;&quot;:3,&#92;&quot;Parameter&#92;&quot;:&#92;&quot;Gesamtmetallbeladung / Gew.-%&#92;&quot;,&#92;&quot;Wert&#92;&quot;:&#92;&quot;1.12&#92;&quot;},{&#92;&quot;_marimo_row_id&#92;&quot;:4,&#92;&quot;Parameter&#92;&quot;:&#92;&quot;Pd-Anteil&#92;&quot;,&#92;&quot;Wert&#92;&quot;:&#92;&quot;0.50&#92;&quot;},{&#92;&quot;_marimo_row_id&#92;&quot;:5,&#92;&quot;Parameter&#92;&quot;:&#92;&quot;Pt-Anteil&#92;&quot;,&#92;&quot;Wert&#92;&quot;:&#92;&quot;0.50&#92;&quot;},{&#92;&quot;_marimo_row_id&#92;&quot;:6,&#92;&quot;Parameter&#92;&quot;:&#92;&quot;TPR-Baseline&#92;&quot;,&#92;&quot;Wert&#92;&quot;:&#92;&quot;robust polynomial&#92;&quot;},{&#92;&quot;_marimo_row_id&#92;&quot;:7,&#92;&quot;Parameter&#92;&quot;:&#92;&quot;Chemisorptions-Basis&#92;&quot;,&#92;&quot;Wert&#92;&quot;:&#92;&quot;strong&#92;&quot;}]&quot;' data-total-rows='8' data-total-columns='2' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='false' data-page-size='10' data-field-types='[[&quot;Parameter&quot;,[&quot;string&quot;,&quot;str&quot;]],[&quot;Wert&quot;,[&quot;string&quot;,&quot;str&quot;]]]' data-selection='&quot;multi&quot;' data-show-filters='true' data-show-download='true' data-show-column-summaries='false' data-show-data-types='true' data-show-page-size-selector='true' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-has-stable-row-id='true' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element></div>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "553ce53bed3dcf53edfda2a2818b8f53",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "ancestor-stopped",
+          "evalue": "This cell wasn't run because an ancestor was stopped with `mo.stop`: ",
+          "traceback": []
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "d2337a92dcd430edbcbb8bb54205f50d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "83d94fadbb50adbd46029a1ad0e3653c",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "ancestor-stopped",
+          "evalue": "This cell wasn't run because an ancestor was stopped with `mo.stop`: ",
+          "traceback": []
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Kclp",
+      "code_hash": "44112b824d826c5f0ae8e56617f99d96",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "ancestor-stopped",
+          "evalue": "This cell wasn't run because an ancestor was stopped with `mo.stop`: ",
+          "traceback": []
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "emfo",
+      "code_hash": "fd7d8b07f36f53e840935513804f5ad6",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "ancestor-stopped",
+          "evalue": "This cell wasn't run because an ancestor was stopped with `mo.stop`: ",
+          "traceback": []
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hstk",
+      "code_hash": "ac7e315861ba7b6404e80eed6cfef0da",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "ancestor-stopped",
+          "evalue": "This cell wasn't run because an ancestor was stopped with `mo.stop`: ",
+          "traceback": []
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "nWHF",
+      "code_hash": "3bdfe71b7092a53b0860d7d52379cc74",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "ancestor-stopped",
+          "evalue": "This cell wasn't run because an ancestor was stopped with `mo.stop`: ",
+          "traceback": []
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "iLit",
+      "code_hash": "1356f0de7d6ab3e655b2e4d4b854c11a",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "ancestor-stopped",
+          "evalue": "This cell wasn't run because an ancestor was stopped with `mo.stop`: ",
+          "traceback": []
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ZHCJ",
+      "code_hash": "d2160a2eef786fbb9beda2c8634150c1",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "ancestor-stopped",
+          "evalue": "This cell wasn't run because an ancestor was stopped with `mo.stop`: ",
+          "traceback": []
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ROlb",
+      "code_hash": "2b23251a86909203fbdb87963e7b1961",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "ancestor-stopped",
+          "evalue": "This cell wasn't run because an ancestor was stopped with `mo.stop`: ",
+          "traceback": []
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "qnkX",
+      "code_hash": "870a6b3c0c4109b0dc2194fd2b03182c",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "ancestor-stopped",
+          "evalue": "This cell wasn't run because an ancestor was stopped with `mo.stop`: ",
+          "traceback": []
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "TqIu",
+      "code_hash": "7130ab6de58d6309029f1e3b8865ec45",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "ancestor-stopped",
+          "evalue": "This cell wasn't run because an ancestor was stopped with `mo.stop`: ",
+          "traceback": []
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Vxnm",
+      "code_hash": "a54bfffa0f081d30a377891e2ffd8f25",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "ancestor-stopped",
+          "evalue": "This cell wasn't run because an ancestor was stopped with `mo.stop`: ",
+          "traceback": []
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "DnEU",
+      "code_hash": "b521afb1651d88dc4b1e4e948f440657",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "ancestor-stopped",
+          "evalue": "This cell wasn't run because an ancestor was stopped with `mo.stop`: ",
+          "traceback": []
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ulZA",
+      "code_hash": "18ffdbac54c4d41e3ae0d73b5b820343",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "ancestor-stopped",
+          "evalue": "This cell wasn't run because an ancestor was stopped with `mo.stop`: ",
+          "traceback": []
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ecfG",
+      "code_hash": "78af7cdec0e5f9b46e39dcc1cc9b6678",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "ancestor-stopped",
+          "evalue": "This cell wasn't run because an ancestor was stopped with `mo.stop`: ",
+          "traceback": []
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Pvdt",
+      "code_hash": "ae9e381749904252bb3504524a248be2",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "ancestor-stopped",
+          "evalue": "This cell wasn't run because an ancestor was stopped with `mo.stop`: ",
+          "traceback": []
         }
       ],
       "console": []

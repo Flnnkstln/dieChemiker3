@@ -8,6 +8,9 @@ uvx \
   --with playwright \
   --with numpy \
   --with matplotlib \
+  --with pandas \
+  --with scipy \
+  --with plotly \
   marimo export thumbnail \
   --execute \
   --overwrite \
