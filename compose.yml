@@ -1,0 +1,7 @@
+services:
+  marimo:
+    build: .
+    container_name: marimo-dashboard
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8000:8000"
