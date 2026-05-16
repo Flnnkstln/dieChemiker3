@@ -1,0 +1,22 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.23.6",
+    "script_metadata_hash": "a66f09540d58d746a35068348ee3369d"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "e5e066080f6a15822a8b48d943138da2",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"kleines-chemie-dashboard\">Kleines Chemie-Dashboard</h1>\n<span class=\"paragraph\">Das ist ein sehr einfaches marimo-Notebook als App.</span>\n<h2 id=\"beispiel-ideale-gasgleichung\">Beispiel: ideale Gasgleichung</h2>\n<marimo-tex class=\"arithmatex\">||[\npV = nRT\n||]</marimo-tex><span class=\"paragraph\">F\u00fcr ein ideales Gas gilt:</span>\n<ul>\n<li><marimo-tex class=\"arithmatex\">||(p||)</marimo-tex>: Druck</li>\n<li><marimo-tex class=\"arithmatex\">||(V||)</marimo-tex>: Volumen</li>\n<li><marimo-tex class=\"arithmatex\">||(n||)</marimo-tex>: Stoffmenge</li>\n<li><marimo-tex class=\"arithmatex\">||(R||)</marimo-tex>: Gaskonstante</li>\n<li><marimo-tex class=\"arithmatex\">||(T||)</marimo-tex>: Temperatur</li>\n</ul>\n<span class=\"paragraph\"><strong>Ziel dieses Notebooks:</strong><br />\nPr\u00fcfen, ob Markdown, LaTeX und einfache Darstellung beim Export funktionieren.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+:root {
+  --marimo-heading-font: system-ui, sans-serif;
+  --marimo-text-font: system-ui, sans-serif;
+  --marimo-monospace-font: "JetBrains Mono", monospace;
+}

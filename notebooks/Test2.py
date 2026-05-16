@@ -1,3 +1,13 @@
+# /// script
+# dependencies = [
+#     "marimo>=0.23.6",
+# ]
+# [tool.marimo.opengraph]
+# title = "Gasgesetz-Rechner"
+# description = "Interaktive Rechnung mit pV = nRT."
+# ///
+
+
 import marimo
 
 __generated_with = "0.23.6"
