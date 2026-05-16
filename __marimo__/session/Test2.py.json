@@ -1,0 +1,35 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.23.6",
+    "script_metadata_hash": null
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "a233a2b0fa44db1823df4ac789cc1942",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='Hbol-0' random-id='be3252ed-83e7-f102-1e0b-f92b278c9d8e'><marimo-slider data-initial-value='1.0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Stoffmenge n / mol&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0.1' data-stop='5.0' data-step='0.1' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element><marimo-ui-element object-id='Hbol-1' random-id='048ec05b-e1ae-1f7c-4634-ed70b1cec3c0'><marimo-slider data-initial-value='298' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Temperatur T / K&lt;/span&gt;&lt;/span&gt;&quot;' data-start='250' data-stop='400' data-step='1' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element><marimo-ui-element object-id='Hbol-2' random-id='489c2b89-57a3-95a2-2b63-ce72669a1fae'><marimo-slider data-initial-value='24' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Volumen V / L&lt;/span&gt;&lt;/span&gt;&quot;' data-start='1' data-stop='100' data-step='1' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element></div>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SPPL",
+      "code_hash": "6eaaa6d5fc1ada2c28c195b863e1eb1f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"ideale-gasgleichung\">Ideale Gasgleichung</h2>\n<marimo-tex class=\"arithmatex\">||[\np = \\frac{nRT}{V}\n||]</marimo-tex><span class=\"paragraph\">Eingesetzt:</span>\n<marimo-tex class=\"arithmatex\">||[\np = \\frac{3.90 \\cdot 0.08314 \\cdot 343}{89}\n||]</marimo-tex><span class=\"paragraph\">Ergebnis:</span>\n<h1 id=\"p-1250mathrmbar\"><marimo-tex class=\"arithmatex\">||(p = 1.250\\,\\mathrm{bar}||)</marimo-tex></h1></span>"
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}
